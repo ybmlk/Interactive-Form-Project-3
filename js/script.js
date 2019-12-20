@@ -1,21 +1,25 @@
 $('#name').focus()
 $('#other-job').hide();
 
-// Reveals a field if 'other' is selected for the job role
+// Reveals a text input field if 'other' is selected for the job role
 $('#title').on('change', () => {
     const $jobRole = $('#title option:selected').val();
     if ($jobRole === 'other') {
         $('#other-job').show();
+        $('#other-job').focus();
     } else {
         $('#other-job').hide();
     }
 });
 
-// Disables the 'color' field until a 'theme' is selected 
+// Disables and hides the 'color' field until a 'theme' is selected 
 function disableColor() {
     $('#color').prop('disabled', true);
     $('#color').prepend($('<option id="color-df" selected>Please select a T-shirt theme</option>'));
     $('#select-theme').attr('disabled', true);
+    $('#color').hide();
+    // hides the 'color' label
+    $('#color').prev().hide();
 }
 disableColor();
 
@@ -39,6 +43,8 @@ $('#design').on('change', () => {
             $(this).show();
         });
         defaultVal(className);
+        $('#color').show();
+        $('#color').prev().show();
     };
 
     if ($designVal === 'js puns') {
@@ -165,8 +171,9 @@ $('form').on('submit', (e) => {
     }
 })
 
-// individually validates each form field when focused out
-$('form').on('focusout', (e) => {
+/* individually validates each form field when focused out OR
+in real-time as an input is typed in */
+$('form').on('focusout keyup', (e) => {
     if ($(e.target).attr('id') === 'name') {
         checkName()
     } else if ($(e.target).attr('id') === 'mail') {
@@ -221,7 +228,20 @@ function checkActivities() {
 
 function checkCreditCard() {
     const pattern = /^\d{13,16}$/
+    const blank = /^\s*$/
     validator(pattern, '#cc-num');
+    // if the filed is blank '#cc-error1' is shown
+    if (blank.test($('#cc-num').val())) {
+        $('#cc-error1').show();
+        $('#cc-error2').hide();
+    } else if (pattern.test($('#cc-num').val())) {
+        $('#cc-error1').hide();
+        $('#cc-error2').hide();
+    // if the input doesn't fit the pattern (not b/n 13-16 digits) '#cc-error2' is shown
+    } else {
+        $('#cc-error1').hide();
+        $('#cc-error2').show();
+    }
 };
 
 function checkZip() {

@@ -135,7 +135,12 @@ label.error, legend.error {
 	color: red;
 }
 
-
+.cc-error {
+	display: none;
+	color: red;
+	margin-top: -13px;
+	margin-bottom: 18px;
+}
 /* ================================= 
   Page Styles
 ==================================== */

@@ -127,6 +127,15 @@ option {
 	font-family: 'roboto', sans-serif;
 }
 
+input.error {
+	border-color: red;
+}
+
+label.error, legend.error {
+	color: red;
+}
+
+
 /* ================================= 
   Page Styles
 ==================================== */

@@ -33,7 +33,9 @@
           <option value="designer">Designer</option>          
           <option value="student">Student</option>
           <option value="other">Other</option>  
-        </select>           
+        </select>
+        
+        <input type="text" id="other-job" name="user-job" placeholder="Your Job Role">
       </fieldset>
       
       <fieldset class="shirt">
@@ -53,7 +55,7 @@
           <div>
             <label for="design">Design:</label>
             <select id="design" name="user-design">
-              <option>Select Theme</option>
+              <option id="select-theme">Select Theme</option>
               <option value="js puns">Theme - JS Puns</option>
               <option value="heart js">Theme - I &#9829; JS</option>
             </select>
@@ -62,12 +64,12 @@
           <div id="colors-js-puns" class="">
             <label for="color">Color:</label>
             <select id="color">
-              <option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
-              <option value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option> 
-              <option value="gold">Gold (JS Puns shirt only)</option> 
-              <option value="tomato">Tomato (I &#9829; JS shirt only)</option>
-              <option value="steelblue">Steel Blue (I &#9829; JS shirt only)</option> 
-              <option value="dimgrey">Dim Grey (I &#9829; JS shirt only)</option> 
+              <option value="cornflowerblue" class="js-puns">Cornflower Blue (JS Puns shirt only)</option>
+              <option value="darkslategrey" class="js-puns">Dark Slate Grey (JS Puns shirt only)</option> 
+              <option value="gold" class="js-puns">Gold (JS Puns shirt only)</option> 
+              <option value="tomato" class="heart-js">Tomato (I &#9829; JS shirt only)</option>
+              <option value="steelblue" class="heart-js">Steel Blue (I &#9829; JS shirt only)</option> 
+              <option value="dimgrey" class="heart-js">Dim Grey (I &#9829; JS shirt only)</option> 
             </select>
           </div>
         </div>               
@@ -102,7 +104,7 @@
             <input type="checkbox" name="npm" data-day-and-time="Wednesday 1pm-4pm" data-cost="100"> 
             npm Workshop — Wednesday 1pm-4pm, $100
           </label>
-                  	
+        <h3>Total: $<span id="total">0</span></h2>          	
       </fieldset>
       <fieldset>
         <legend>Payment Info</legend>
@@ -172,5 +174,12 @@
     </form>
 
   </div>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+
 </body>
 </html>

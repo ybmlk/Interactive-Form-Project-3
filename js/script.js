@@ -29,6 +29,11 @@ $('#design').on('change', () => {
 
     // when a theme is selected the first color from the list is chosen by default 
     function defaultVal(className) {
+        // Interates through all the options and removes 'selected'
+        $('#color').children().each(function () {
+            $(this).attr('selected', false)
+        });
+        //  adds'selected' to the first color (or either theme) by default
         $(className).eq(0).attr('selected', true);
         $('#color').prop('disabled', false);
         $('#color-df').hide();
